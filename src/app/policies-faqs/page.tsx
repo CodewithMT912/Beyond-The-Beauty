@@ -2,6 +2,7 @@ import Link from "next/link";
 import { AnnouncementBar, Footer, Navbar } from "@/components/site-shell";
 import { Newsletter } from "@/components/homepage-sections";
 import { Icon } from "@/components/icons";
+import { PageBanner } from "@/components/page-banner";
 import {
   PoliciesFAQBrowser,
   PolicySectionNav,
@@ -27,18 +28,16 @@ export default function PoliciesFAQsPage() {
       <AnnouncementBar />
       <Navbar />
       <main className="policies-page">
-        <header className="policies-hero">
-          <div className="page-width">
-            <p className="eyebrow">HERE TO HELP</p>
-            <h1>Policies &amp; FAQs</h1>
-            <p>Helpful answers and clear information for a confident shopping experience.</p>
-            <nav aria-label="Breadcrumb" className="policies-breadcrumb">
-              <Link href="/">Home</Link>
-              <span aria-hidden="true">/</span>
-              <span aria-current="page">Policies &amp; FAQs</span>
-            </nav>
-          </div>
-        </header>
+        <PageBanner
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Policies & FAQs" },
+          ]}
+          className="page-banner-policies"
+          eyebrow="HERE TO HELP"
+          subtitle="Helpful answers and clear information for a confident shopping experience."
+          title="Policies & FAQs"
+        />
 
         <div className="home-section-spacing policies-layout page-width">
           <PolicySectionNav />

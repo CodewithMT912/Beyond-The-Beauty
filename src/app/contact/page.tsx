@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ContactForm } from "@/components/contact-form";
 import { FAQAccordion } from "@/components/faq-accordion";
 import { Icon } from "@/components/icons";
+import { PageBanner } from "@/components/page-banner";
 import { Footer, AnnouncementBar, Navbar } from "@/components/site-shell";
 import { Newsletter } from "@/components/homepage-sections";
 import { contactPage } from "@/data/contact";
@@ -55,17 +56,17 @@ export default function ContactPage() {
       <AnnouncementBar />
       <Navbar />
       <main className="contact-page">
-        <section className="contact-hero">
-          <div className="contact-hero-copy">
-            <p className="eyebrow">{contactPage.hero.eyebrow}</p>
-            <h1>{contactPage.hero.title}</h1>
-            <p>{contactPage.hero.description}</p>
-            <a className="button button-gold" href="#contact-message-form">{contactPage.hero.action}</a>
-          </div>
-          <div aria-hidden="true" className="contact-hero-image">
-            <Image alt="" fill priority sizes="(max-width: 760px) 100vw, 50vw" src={contactPage.hero.image} />
-          </div>
-        </section>
+        <PageBanner
+          action={{ href: "#contact-message-form", label: contactPage.hero.action }}
+          breadcrumbs={[
+            { label: "Home", href: "/" },
+            { label: "Contact" },
+          ]}
+          className="page-banner-contact"
+          eyebrow={contactPage.hero.eyebrow}
+          subtitle={contactPage.hero.description}
+          title={contactPage.hero.title}
+        />
 
         <section aria-label="Contact options" className="home-section-spacing">
           <div className="page-width contact-methods">

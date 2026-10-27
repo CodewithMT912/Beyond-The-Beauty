@@ -56,6 +56,8 @@ export function Navbar() {
                         ? "/"
                         : item === "Policies & FAQs"
                           ? "/policies-faqs"
+                          : item === "About Us"
+                            ? "/about"
                           : `/${item.toLowerCase().replaceAll(" ", "-")}`}
                       onClick={closeMenu}
                     >
@@ -128,11 +130,12 @@ export function Navbar() {
 
 const footerColumns = [
   { title: "Shop", links: ["Skincare", "Makeup", "Hair Care", "Fragrances", "New Arrivals"] },
-  { title: "Customer Care", links: ["Contact Us", "Shipping Policy", "Returns & Exchanges", "FAQs"] },
+  { title: "Customer Care", links: ["About Us", "Contact Us", "Shipping Policy", "Returns & Exchanges", "FAQs"] },
   { title: "My Account", links: ["Login / Register", "Order History", "Wishlist", "Track My Order"] },
 ];
 
 function footerHref(label: string) {
+  if (label === "About Us") return "/about";
   if (label === "Contact Us") return "/contact";
   if (label === "FAQs") return "/policies-faqs#faqs";
   if (label === "Shipping Policy") return "/policies-faqs#shipping";
